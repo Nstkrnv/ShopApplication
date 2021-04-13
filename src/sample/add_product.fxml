@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="scene3" prefHeight="100.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="add_product.ControllerAddProducts">
+   <children>
+      <HBox fx:id="hb" layoutX="8.0" layoutY="46.0" prefHeight="141.0" prefWidth="448.0">
+         <children>
+            <TextField fx:id="addQuantity" />
+            <TextField fx:id="addDateOfProduction" />
+            <Button fx:id="btn1" mnemonicParsing="false" onAction="#Click" text="Добавить"  />
+         </children>
+      </HBox>
+      <Label fx:id="label1" layoutX="28.0" layoutY="14.0" prefHeight="17.0" prefWidth="411.0" text="Введите информацию о дате производства партии и количестве товара:" />
+   </children>
+</AnchorPane>
