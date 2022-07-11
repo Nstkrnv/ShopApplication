@@ -14,7 +14,7 @@ id = sys.argv[1]
 
 #warnings.filterwarnings("ignore")
 
-conn = sqlite3.connect(r'C:/Users/Anastasia/Databaselogistics/dt.db')
+conn = sqlite3.connect(r'C:/Users/Anastasia/Databaselogistics/dtt.db')
 cur = conn.cursor()
 
 cur.execute("DELETE FROM prediction")

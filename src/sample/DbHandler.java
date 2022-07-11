@@ -12,7 +12,7 @@ import java.util.*;
 public class DbHandler {
 
     // Константа, в которой хранится адрес подключения
-    private static final String CON_STR = "jdbc:sqlite:C:/Users/Anastasia/Databaselogistics/dt.db";
+    private static final String CON_STR = "jdbc:sqlite:C:/Users/Anastasia/Databaselogistics/dtt.db";
 
     // Используем шаблон одиночка, чтобы не плодить множество
     // экземпляров класса DbHandler
@@ -112,17 +112,17 @@ public class DbHandler {
                     "From (\n" +
                     "Select id, дата_производства, Sum(количество) as iquantity\n" +
                     "From income\n" +
-                    "Where дата<= '2021-01-13'\n" +
+                    "Where дата<= '2021-06-13'\n" +
                     "Group by id, дата_производства) as new_income\n" +
                     "Left Join (\n" +
                     "Select id, дата_производства, Count(дата) as oquantity\n" +
                     "From outcome\n" +
-                    "Where дата<= '2021-01-13'\n" +
+                    "Where дата<= '2021-06-13'\n" +
                     "Group by id, дата_производства) as new_outcome\n" +
                     "On new_outcome.дата_производства=new_income.дата_производства and new_outcome.id=new_income.id\n" +
                     "Join products\n" +
                     "On new_income.id=products.id\n" +
-                    "Where julianday('2021-01-13')-julianday(new_income.дата_производства)<=products.shelf_life \n" +
+                    "Where julianday('2021-06-13')-julianday(new_income.дата_производства)<=products.shelf_life \n" +
                     "and остаток_товара>0 and products.name = ? ";
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, chosenCell.toString());
@@ -190,18 +190,20 @@ public class DbHandler {
                     "From (\n" +
                     "Select id, дата_производства, Sum(количество) as iquantity\n" +
                     "From income\n" +
-                    "Where дата<= '2021-01-13'\n" +
+                    "Where дата<= '2021-06-13'\n" +
                     "Group by id, дата_производства) as new_income\n" +
                     "Left Join (\n" +
                     "Select id, дата_производства, Count(дата) as oquantity\n" +
                     "From outcome\n" +
-                    "Where дата<= '2021-01-13'\n" +
+                    "Where дата<= '2021-06-13'\n" +
                     "Group by id, дата_производства) as new_outcome\n" +
                     "On new_outcome.дата_производства=new_income.дата_производства and new_outcome.id=new_income.id\n" +
                     "Join products\n" +
                     "On new_income.id=products.id\n" +
-                    "Where julianday('2021-01-13')-julianday(new_income.дата_производства)<=products.shelf_life \n" +
-                    "and остаток_товара>0 and products.name = ?)";
+                    "Where julianday('2021-06-13')-julianday(new_income.дата_производства)<=products.shelf_life \n" +
+                    "and остаток_товара>0 and products.name = ?)\n"+
+                    "order by дата_производства desc";
+
             PreparedStatement ps = connection.prepareStatement(sql);
             ps.setString(1, productName);
             ResultSet resultSet = ps.executeQuery();

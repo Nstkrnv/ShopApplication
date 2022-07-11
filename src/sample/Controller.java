@@ -32,8 +32,6 @@ import java.util.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import static java.lang.String.valueOf;
-
 public class Controller implements Initializable {
 
     public HBox buttons;
@@ -67,12 +65,7 @@ public class Controller implements Initializable {
                                 Stage stage = new Stage();
                                 stage.setScene(scene);
                                 stage.setTitle("Новая партия товара: " + mproducts0.get(i).name );
-                             /*   stage.setOnShown(new EventHandler<WindowEvent>() {
-                                    @Override
-                                    public void handle(WindowEvent event) {
-                                        ((ControllerAddProducts)loader.getController()).initializeTable();
-                                    }
-                                });*/
+
                                 ((ControllerAddProducts)loader.getController()).setMainController(contr);
                                 stage.show();
                             }
@@ -255,7 +248,7 @@ public class Controller implements Initializable {
 
 
                     DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
-                 //   Date f = format.parse(statystics.getString("дата"));
+
                      Date prefDate = format.parse(statystics.getString ("дата"));
                      final long pd = prefDate.getTime();
 
@@ -280,13 +273,9 @@ public class Controller implements Initializable {
                             prefDate = new Date(prefDate.getTime() + (1000 * 60 * 60 * 24));
                         }
                         z+=1;
-                       /* if(prefDate!=null) {
-                            long seconds = format.parse(statystics.getString("дата")).getTime() - prefDate.getTime();
-                            int days = (int) (seconds / (24 * 60 * 60 * 1000));
-                            z += days;
-                        }*/
+
                         datas.add(new XYChart.Data(z, statystics.getInt("count(id)")));
-                       // curDate= format.parse(statystics.getString ("дата"));
+
                     }
 
 
@@ -462,15 +451,5 @@ public class Controller implements Initializable {
 
     }
 
-
-
-
-  /*  private static class ProductCell extends ListCell<HBoxCell> {
-        @Override
-        protected void updateItem(HBoxCell item, boolean empty) {
-            super.updateItem(item, empty);
-            setText(empty || item == null ? null : item.label.getText());
-        }
-    }*/
 
 }
