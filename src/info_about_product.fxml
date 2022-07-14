@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:id="scene2" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="info_about_product.NewController">
+   <children>
+      <TableView fx:id="tab1" layoutX="30.0" layoutY="30.0" prefHeight="150.0" prefWidth="250.0">
+        <columns>
+          <TableColumn fx:id="dateProductionColumn" prefWidth="125.0" text="Дата производства" />
+          <TableColumn fx:id="quantityColumn" prefWidth="125.0" text="Остаток товара" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

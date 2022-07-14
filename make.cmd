@@ -1,0 +1,2 @@
+javac -encoding utf8 -classpath ./src/lib/sqlite-jdbc-3.7.2.jar;./src/lib/jython.jar;./src/lib/javafx.base.jar;./src/lib/javafx.controls.jar;./src/lib/javafx.fxml.jar;./src/lib/javafx.graphics.jar;./src/lib/javafx.media.jar;./src/lib/javafx.swing.jar;./src/lib/javafx.web.jar;./src/lib/javafx-swt.jar;./src/lib/jfxrt.jar -d ./ ./src/*.java
+pause
